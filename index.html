@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Prueba del Templo Digital</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="css/style.css">
+<!-- Three.js desde CDN (ver README para usarlo en local) -->
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<div id="hud" class="hidden">
+  <div class="lvl" id="lvlname"></div>
+  <div id="hearts"></div>
+  <div id="dashrow"><span>DASH</span><span id="dashpips"></span></div>
+  <div id="chips"></div>
+  <div id="stats"></div>
+</div>
+<div id="topright" class="hidden">
+  <button class="sbtn" id="btnRestart">Reiniciar (R)</button>
+  <button class="sbtn" id="btnMenu">Pausa (Esc)</button>
+</div>
+<div id="hint" class="hidden"><kbd>WASD</kbd>/<kbd>Flechas</kbd> mover · <kbd>Espacio</kbd>/<kbd>Shift</kbd> dash (orbe Dash) · <kbd>R</kbd> reiniciar · <kbd>M</kbd> sonido</div>
+<div id="bosshud" class="hidden"><div id="bosstime"></div><div id="bossswap"></div></div>
+<div id="toast"></div>
+<div id="fade"></div>
+
+<div id="screen">
+  <div class="card" id="menuCard">
+    <h1 class="sr-only">La Prueba del Templo Digital</h1>
+    <img id="logo" src="assets/img/logo.png" alt="La Prueba del Templo Digital">
+    <p class="story">Lumen es un pequeño golem que es parte de una mazmorra y es el próximo candidato a convertirse en Guardián de la mazmorra.
+      Ayuda a Lumen a superar las pruebas del Guardián y conviértelo en el próximo Guardián.</p>
+    <div id="loadmsg">Cargando modelos…</div>
+    <button class="primary" id="btnStart" disabled>▶ Comenzar la prueba</button>
+    <div id="levelPick" class="hidden">
+      <div class="sub">Pruebas superadas · elige una sala</div>
+      <div class="lvls">
+        <button class="lbtn" data-lvl="0" disabled><b>Nivel 1</b>El Umbral<br><small>Dash, huecos y trampas</small></button>
+        <button class="lbtn" data-lvl="1" disabled><b>Nivel 2</b>Sala de Cristales<br><small>Escudo y rayos láser</small></button>
+        <button class="lbtn" data-lvl="2" disabled><b>Nivel 3</b>El Guardián<br><small>Sobrevive 1 minuto</small></button>
+      </div>
+    </div>
+    <div class="ctrl"><kbd>WASD</kbd> / <kbd>Flechas</kbd> mover · <kbd>Espacio</kbd> / <kbd>Shift</kbd> dash (solo con cargas de orbe Dash, máx. 2)<br>Las baldosas rojas caen al abismo · el escudo es pasivo · 3 vidas · <kbd>Esc</kbd> pausa.</div>
+  </div>
+  <div class="card hidden" id="pauseCard">
+    <h1>PAUSA</h1>
+    <div class="sub">El juego está detenido.</div>
+    <div class="lvls">
+      <button class="lbtn" id="btnResume"><b>Continuar</b></button>
+      <button class="lbtn" id="btnPauseRestart"><b>Reiniciar nivel</b></button>
+      <button class="lbtn" id="btnPauseMenu"><b>Menú principal</b></button>
+    </div>
+  </div>
+  <div class="card hidden" id="endCard">
+    <h1 id="endTitle"></h1>
+    <div class="sub" id="endSub"></div>
+    <div class="lvls">
+      <button class="lbtn" id="btnNext"><b>Siguiente</b></button>
+      <button class="lbtn" id="btnAgain"><b>Repetir</b></button>
+      <button class="lbtn" id="btnToMenu"><b>Menú principal</b></button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
